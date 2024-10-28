@@ -62,13 +62,27 @@ game_over_display = turtle.Turtle()
 game_over_display.color("red")
 game_over_display.penup()
 game_over_display.hideturtle()
-game_over_display.goto(0, 250)
+game_over_display.goto(0, -350)
 
 win_display = turtle.Turtle()
 win_display.color("green")
 win_display.penup()
 win_display.hideturtle()
-win_display.goto(0, 250)
+win_display.goto(0, -350)
+
+instructions_display = turtle.Turtle()
+instructions_display.color("white")
+instructions_display.penup()
+instructions_display.hideturtle()
+instructions_display.goto(0, 50)
+
+def show_instructions():
+    instructions_display.clear()
+    instructions_display.write("Use arrow keys to move left and right and the space bar to shoot\n\nPress 'S' to start", align="center", font=("Courier", 24, "normal"))
+
+def start_game():
+    instructions_display.clear()
+    main_loop()
 
 def reset_game():
     global bullets, aliens, last_bullet_time
@@ -199,6 +213,8 @@ def main_loop():
     screen.listen()
     screen.onkeypress(play_again, "p")
 
-main_loop()
+show_instructions()
+screen.listen()
+screen.onkeypress(start_game, "s")
 screen.mainloop()
 
