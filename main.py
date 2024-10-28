@@ -62,13 +62,13 @@ game_over_display = turtle.Turtle()
 game_over_display.color("red")
 game_over_display.penup()
 game_over_display.hideturtle()
-game_over_display.goto(0, -350)
+game_over_display.goto(0, 330)
 
 win_display = turtle.Turtle()
 win_display.color("green")
 win_display.penup()
 win_display.hideturtle()
-win_display.goto(0, -350)
+win_display.goto(0, 330)
 
 instructions_display = turtle.Turtle()
 instructions_display.color("white")
@@ -126,7 +126,7 @@ def fire_bullet():
 def alien_shoot():
     global last_shoot_time
     current_time = time.time()
-    if current_time - last_shoot_time >= 3:
+    if current_time - last_shoot_time >= 2:
         if aliens:
             random_alien = random.choice([alien for alien in aliens if alien.type == "large"])
             bullet = Bullet(color="red")
