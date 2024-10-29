@@ -20,7 +20,7 @@ class Alien(Turtle):
             self.shape("assets/alien_small_resized.gif")
 
 
-        self.move_speed = 3
+        self.move_speed = 3.5
         self.direction = "right"
 
     def move(self):
